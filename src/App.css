@@ -15,13 +15,13 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  width: 100%;
 }
 
 .App-link {
@@ -35,4 +35,45 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.cards {
+  width: 200px;
+  height: 150px;
+
+  font-size: x-large;
+  border-radius: 20px;
+}
+.main-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 50px;
+}
+input {
+  width: 300px;
+  border-radius: 10px;
+  height: 40px;
+}
+input:hover {
+  border: 2px solid red;
+}
+form {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: rgb(228, 223, 223);
+}
+.card-body {
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  background-color: rgb(209, 209, 205);
+}
+
+.see-data {
+  font-size: xx-large;
+  border-radius: 10px;
+  background-color: rgb(71, 84, 52);
+  color: whitesmoke;
 }
