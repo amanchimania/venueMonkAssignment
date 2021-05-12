@@ -2,17 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100px;
@@ -21,20 +10,6 @@
   align-items: center;
   justify-content: center;
   color: white;
-  width: 100%;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 .cards {
@@ -67,7 +42,8 @@ form {
   text-align: center;
   display: flex;
   flex-direction: column;
-  border-radius: 20px;
+  /* border-radius: 10px; */
+  border: 0.5px solid rgb(209, 209, 205);
   background-color: rgb(209, 209, 205);
 }
 
@@ -76,4 +52,31 @@ form {
   border-radius: 10px;
   background-color: rgb(71, 84, 52);
   color: whitesmoke;
+}
+.button-delete {
+  background-color: rgb(209, 209, 205);
+  /* border-radius: 0px 0px 2px 2px; */
+  border: 0.5px solid rgb(209, 209, 205);
+}
+
+@media screen and (max-width: 1200px) {
+  .main-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-column-gap: 50px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .main-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-column-gap: 50px;
+  }
+  .mr-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }

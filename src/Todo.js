@@ -27,12 +27,17 @@ function Todo() {
         e.preventDefault();
         if (todo.title.length === 0 || todo.description.length === 0) {
             alert("Title and description cannot be empty")
-        } else {
+        }
+        else {
             let copyTodo = [...data]
             copyTodo.push(todo);
             setData(copyTodo)
             localStorage.setItem("todoStore", JSON.stringify(copyTodo))
         }
+        setTodo({
+            title: "",
+            description: ""
+        })
         // console.log(data);
     }
     const deleteTodo = (title) => {
@@ -67,17 +72,18 @@ function Todo() {
     }
     return (
         <div className="App">
+            {/* <> */}
             <h1 className="App-header">Todo List</h1><br />
             <div>
-                <input type="text" id="aaa" onChange={(e) => setSearch(e.target.value)} placeholder="Enter any Title/Description to search" />&nbsp;
+                <input type="text" id="aaa" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Enter any Title/Description to search" />&nbsp;
                 <button onClick={handleSearchBox}><FaSearch onClick={handleSearchBox} /></button>
             </div><br />
-            {!flag && <><br /><button onClick={() => setflag(true)} className="see-data">See all data</button><br /><br /><br /></>}
+            {!flag && <><br /><button onClick={() => { setflag(true); setSearch("") }} className="see-data">See all data</button><br /><br /><br /></>}
 
             {flag && <>
                 <form className="mr-2">
-                    <input type="text" placeholder="Enter Title" name="title" onChange={handleInput} />
-                    <input type="text" placeholder="Todo Description" name="description" onChange={handleInput} />
+                    <input type="text" placeholder="Enter Title" name="title" value={todo.title} onChange={handleInput} />
+                    <input type="text" placeholder="Todo Description" name="description" value={todo.description} onChange={handleInput} />
                     <input type="submit" onClick={handleData} />
                 </form><br /><br />
                 <h3 className="text-danger">Click on the card to mark it as complete</h3>
@@ -91,7 +97,7 @@ function Todo() {
 
 
                             </div>
-                            <button onClick={() => deleteTodo(val.title)} style={{ border: "1px solid black", backgroundColor: "rgb(209, 209, 205)", width: "100px", borderRadius: "5px 5px", backgroundColor: "#FF6347", fontSize: "large" }}>Delete</button>
+                            <div className="button-delete"><button onClick={() => deleteTodo(val.title)} style={{ border: "1px solid black", backgroundColor: "rgb(209, 209, 205)", width: "100px", borderRadius: "5px 5px", backgroundColor: "#FF6347", fontSize: "large" }} >Delete</button></div>
                             <br /><br /><br />
                         </div>
 
@@ -118,6 +124,7 @@ function Todo() {
 
 
         </div >
+
 
     );
 }
