@@ -40,9 +40,9 @@ function Todo() {
         })
         // console.log(data);
     }
-    const deleteTodo = (title) => {
+    const deleteTodo = (title, description) => {
         // console.log(title);
-        let deleteTodo = data.filter(val => val.title !== title)
+        let deleteTodo = data.filter(val => val.title !== title || val.description !== description)
         // console.log(deleteTodo);
         setData(deleteTodo)
         localStorage.setItem("todoStore", JSON.stringify(deleteTodo))
@@ -97,7 +97,7 @@ function Todo() {
 
 
                             </div>
-                            <div className="button-delete"><button onClick={() => deleteTodo(val.title)} style={{ border: "1px solid black", backgroundColor: "rgb(209, 209, 205)", width: "100px", borderRadius: "5px 5px", backgroundColor: "#FF6347", fontSize: "large" }} >Delete</button></div>
+                            <div className="button-delete"><button onClick={() => deleteTodo(val.title, val.description)} style={{ border: "1px solid black", backgroundColor: "rgb(209, 209, 205)", width: "100px", borderRadius: "5px 5px", backgroundColor: "#FF6347", fontSize: "large" }} >Delete</button></div>
                             <br /><br /><br />
                         </div>
 
